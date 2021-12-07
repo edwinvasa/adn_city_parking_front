@@ -7,8 +7,8 @@ import { HomeComponent } from '@home/home.component';
 import { ProductoModule } from '@producto/producto.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
-
-
+import { ParqueoModule } from '@parqueo/parqueo.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -20,7 +20,9 @@ import { CookieService } from 'ngx-cookie-service';
     BrowserModule,
     AppRoutingModule,
     ProductoModule,
-    CoreModule
+    ParqueoModule,
+    CoreModule,
+    BrowserAnimationsModule
   ],
   providers: [CookieService],
     bootstrap: [AppComponent],

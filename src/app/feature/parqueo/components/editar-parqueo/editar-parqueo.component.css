@@ -1,0 +1,38 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.invalido {
+  color: red;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.contenedor-card {
+  width: 22em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
+}
+
+.radio-button {
+  margin-right: 1em;
+}
+
+.tiempo{
+  margin-left: 2px;
+  width: 5em;
+}
+
+.fecha{
+  width: 11em;
+}

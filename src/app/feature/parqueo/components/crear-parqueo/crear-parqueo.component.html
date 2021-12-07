@@ -1,0 +1,41 @@
+<h1>Registrar Parqueo</h1>
+<form [formGroup]="parqueoForm" (ngSubmit)="crear()">
+    <div class=row>
+        <div class="col-sm-2">
+            <label>Placa</label>
+        </div>
+        <div class="col-sm-4">
+            <input validar type="text" id="placa" name="placa" placeholder="Placa del vehiculo" class="form-control"
+            formControlName="placa">
+        </div>
+    </div>
+    <div class=row>
+      <div class="col-sm-2">
+          <label>Tipo Vehiculo</label>
+      </div>
+      <div class="col-sm-2">
+      <mat-radio-group class="example-radio-group" aria-label="Seleccione el tipo de vehiculo" formControlName="tipoVehiculo">
+        <mat-radio-button value="AUTOMOVIL" selected="true">
+          <span class="material-icons">directions_car</span>
+        </mat-radio-button>
+        <mat-radio-button value="MOTOCICLETA">
+          <span class="material-icons">two_wheeler</span>
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <label>Fecha y Hora de Ingreso</label>
+        </div>
+        <div class="col-sm-4">
+            <input validar type="text" id="fechaHoraIngreso" name="fechaHoraIngreso" placeholder="yyyy-mm-dd hh:mm:ss" class="form-control"
+            formControlName="fechaHoraIngreso">
+        </div>
+    </div>
+    <div class=row>
+        <div class="col-sm-4">
+            <input type="submit">
+        </div>
+    </div>
+</form>

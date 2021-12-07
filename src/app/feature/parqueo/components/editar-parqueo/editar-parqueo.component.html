@@ -1,0 +1,90 @@
+<form class="example-container" [formGroup]="parqueoEdicionForm" #frmParqueo="ngForm" (ngSubmit)="modificar()">
+
+  <mat-card class="contenedor-card">
+    <mat-card-title>{{tituloCard}}</mat-card-title>
+
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Placa</mat-label>
+        <input validar type="text" matInput placeholder="ejemplo: EJE910" formControlName="placa" id="placa" />
+      </mat-form-field>
+      <br>
+      <label id="example-radio-group-label">Tipo Vehiculo</label>
+      <br>
+      <mat-radio-group class="example-radio-group" aria-label="Seleccione el tipo de vehiculo"
+        formControlName="tipoVehiculo">
+        <mat-radio-button value="AUTOMOVIL" selected="true">
+          <span class="material-icons radio-button">directions_car</span>
+        </mat-radio-button>
+        <mat-radio-button value="MOTOCICLETA">
+          <span class="material-icons radio-button">two_wheeler</span>
+        </mat-radio-button>
+      </mat-radio-group>
+      <br>
+      <br>
+
+      <mat-label>Fecha y Hora de Ingreso</mat-label>
+      <div class="row">
+        <div class="col-sm-2">
+          <mat-form-field appearance="fill" class="fecha">
+            <mat-label>Fecha</mat-label>
+            <input matInput [matDatepicker]="pickerIngreso" placeholder="Seleccione la fecha" [max]="fechaMaxima"
+              formControlName="fechaIngreso" id="fechaIngreso" />
+            <mat-datepicker-toggle matSuffix [for]="pickerIngreso"></mat-datepicker-toggle>
+            <mat-datepicker #pickerIngreso></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="tiempo">
+            <mat-label>Horas</mat-label>
+            <input matInput type="number" placeholder="Ejemplo: 13" formControlName="horasIngreso" min="0" max="24">
+          </mat-form-field>
+
+
+          <mat-form-field appearance="fill" class="tiempo">
+            <mat-label>Minutos</mat-label>
+            <input matInput type="number" placeholder="Ejemplo: 30" formControlName="minutosIngreso" min="0" max="59">
+          </mat-form-field>
+        </div>
+      </div>
+      <br>
+      <mat-label>Fecha y Hora de Salida</mat-label>
+
+      <div class="row">
+        <mat-form-field appearance="fill" class="fecha">
+          <mat-label>Fecha</mat-label>
+          <input matInput [matDatepicker]="pickerSalida" placeholder="Seleccione la fecha" [max]="fechaMaxima"
+            formControlName="fechaSalida" id="fechaSalida" />
+          <mat-datepicker-toggle matSuffix [for]="pickerSalida"></mat-datepicker-toggle>
+          <mat-datepicker #pickerSalida></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="tiempo">
+          <mat-label>Horas</mat-label>
+          <input matInput type="number" placeholder="Ejemplo: 13" formControlName="horasSalida" min="0" max="24">
+        </mat-form-field>
+
+
+        <mat-form-field appearance="fill" class="tiempo">
+          <mat-label>Minutos</mat-label>
+          <input matInput type="number" placeholder="Ejemplo: 30" formControlName="minutosSalida" min="0" max="59">
+        </mat-form-field>
+
+      </div>
+    </mat-card-content>
+
+    <mat-divider inset></mat-divider>
+    <mat-card-actions align="end">
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="frmParqueo.invalid">
+        <mat-icon>done</mat-icon>
+        <span>Aceptar</span>
+      </button>
+
+      <button mat-raised-button color="accent" routerLink='/parqueo/listar' type="button">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+</form>
