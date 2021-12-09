@@ -11,8 +11,6 @@ const LONGITUD_MINIMA_PERMITIDA_TEXTO = 5;
 const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 8;
 const LONGITUD_MINIMA_PERMITIDA_TIPO_VEHICULO = 8;
 const LONGITUD_MAXIMA_PERMITIDA_TIPO_VEHICULO = 11;
-const LONGITUD_PERMITIDA_FECHAS = 10;
-const LONGITUD_PERMITIDA_FECHA = 19;
 const ITEM = 0;
 const REGISTRAR_PARQUEO = 'Registrar Parqueo';
 const EDITAR_PARQUEO = 'Editar Parqueo';
@@ -147,8 +145,7 @@ export class EditarParqueoComponent implements OnInit {
       tipoVehiculo: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TIPO_VEHICULO),
       Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TIPO_VEHICULO)]),
 
-      fechaIngreso: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_PERMITIDA_FECHAS),
-      Validators.maxLength(LONGITUD_PERMITIDA_FECHAS)]),
+      fechaIngreso: new FormControl('', [Validators.required]),
 
       horasIngreso: new FormControl(this.fechaCompletaIngreso.getHours(), [Validators.required, Validators.min(this.HORA_MINIMA),
       Validators.max(this.HORA_MAXIMA)]),
@@ -156,8 +153,7 @@ export class EditarParqueoComponent implements OnInit {
       minutosIngreso: new FormControl(this.fechaCompletaIngreso.getMinutes(), [Validators.required, Validators.min(this.MINUTOS_MINIMOS),
       Validators.max(this.MINUTOS_MAXIMOS)]),
 
-      fechaSalida: new FormControl('', [Validators.minLength(LONGITUD_PERMITIDA_FECHA),
-      Validators.maxLength(LONGITUD_PERMITIDA_FECHA)]),
+      fechaSalida: new FormControl(''),
 
       horasSalida: new FormControl('', [Validators.min(this.HORA_MINIMA),
       Validators.max(this.HORA_MAXIMA)]),

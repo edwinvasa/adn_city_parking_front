@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { ParqueoComponent } from './parqueo.component';
 
@@ -8,7 +10,8 @@ describe('ParqueoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ParqueoComponent ]
+      declarations: [ ParqueoComponent ],
+      imports: [ RouterTestingModule, HttpClientTestingModule ]
     })
     .compileComponents();
   });
@@ -19,7 +22,7 @@ describe('ParqueoComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Deberia crear el componente correctamente', () => {
     expect(component).toBeTruthy();
   });
 });

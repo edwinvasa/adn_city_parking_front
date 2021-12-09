@@ -4,6 +4,7 @@
     <mat-card-title>{{tituloCard}}</mat-card-title>
 
     <mat-card-content>
+
       <mat-form-field appearance="fill">
         <mat-label>Placa</mat-label>
         <input validar type="text" matInput placeholder="ejemplo: EJE910" formControlName="placa" id="placa" required />
@@ -11,15 +12,20 @@
       <br>
       <label id="example-radio-group-label">Tipo Vehiculo</label>
       <br>
+
       <mat-radio-group class="example-radio-group" aria-label="Seleccione el tipo de vehiculo"
         formControlName="tipoVehiculo">
-        <mat-radio-button value="AUTOMOVIL" selected="true">
+
+        <mat-radio-button value="AUTOMOVIL"selected="true">
           <span class="material-icons radio-button">directions_car</span>
         </mat-radio-button>
+
         <mat-radio-button value="MOTOCICLETA">
           <span class="material-icons radio-button">two_wheeler</span>
         </mat-radio-button>
+
       </mat-radio-group>
+
       <br>
       <br>
 
