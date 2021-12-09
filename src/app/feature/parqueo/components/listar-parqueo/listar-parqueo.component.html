@@ -2,12 +2,12 @@
 
 <div class="flex justify-content-between p-3 contenedor">
   <h1>Gestion de Parqueos</h1>
-  <button mat-raised-button color="accent" routerLink="/parqueo/listar/crear">
+  <button mat-raised-button color="accent" routerLink="/parqueo/listar/crear" id="btnRegistrar">
     <mat-label>Registrar Ingreso</mat-label>
   </button>
   <div class="example-header">
     <mat-form-field>
-      <input matInput (keyup)="filtrar($event)" placeholder="Buscar Parqueo">
+      <input matInput (keyup)="filtrar($event)" placeholder="Buscar Parqueo" id="buscarParqueo">
     </mat-form-field>
   </div>
 </div>
@@ -15,13 +15,12 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 contenedor" matSort matSortActive="id" matSortDisableClear
   matSortDirection="desc">
   <caption class="mat-elevation-z8">Parqueos Registrados</caption>
-  <!-- Position Column -->
+
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear id="no"> No. </th>
     <td mat-cell *matCellDef="let element"> {{element.id}} </td>
   </ng-container>
 
-  <!-- Name Column -->
   <ng-container matColumnDef="tipo vehiculo">
     <th mat-header-cell *matHeaderCellDef id="tipoVehiculo"> Tipo Vehiculo </th>
     <td mat-cell *matCellDef="let element">
@@ -31,38 +30,35 @@
     <td mat-cell *matCellDef="let element"> {{element.tipoVehiculo}} </td>
   </ng-container>
 
-  <!-- Weight Column -->
   <ng-container matColumnDef="placa">
     <th mat-header-cell *matHeaderCellDef id="placa"> Placa </th>
     <td mat-cell *matCellDef="let element"> {{element.placa}} </td>
   </ng-container>
 
-  <!-- Symbol Column -->
   <ng-container matColumnDef="fecha hora ingreso">
     <th mat-header-cell *matHeaderCellDef id="fechaHoraIngreso"> Fecha Hora Ingreso </th>
     <td mat-cell *matCellDef="let element"> {{element.fechaHoraIngreso}} </td>
   </ng-container>
 
-  <!-- Symbol Column -->
   <ng-container matColumnDef="fecha hora salida">
     <th mat-header-cell *matHeaderCellDef id="fechaHoraSalida"> Fecha Hora Salida </th>
     <td mat-cell *matCellDef="let element"> {{element.fechaHoraSalida}} </td>
   </ng-container>
 
-  <!-- Symbol Column -->
   <ng-container matColumnDef="valor">
     <th mat-header-cell *matHeaderCellDef id="valor"> Valor </th>
     <td mat-cell *matCellDef="let element"> {{element.valor | currency}} </td>
   </ng-container>
 
-  <!-- Symbol Column -->
   <ng-container matColumnDef="acciones">
     <th mat-header-cell *matHeaderCellDef id="acciones"> Acciones </th>
     <td mat-cell *matCellDef="let element">
-      <button *ngIf="element.fechaHoraSalida" mat-button color="primary" (click)="openDialog(element.id)">
+      <button *ngIf="element.fechaHoraSalida" mat-button color="primary" (click)="openDialog(element.id)"
+      id="factura">
         <mat-icon>receipt</mat-icon>
       </button>
-      <button *ngIf="!element.fechaHoraSalida" mat-button color="primary" [routerLink]="['editar', element.id]">
+      <button *ngIf="!element.fechaHoraSalida" mat-button color="primary" [routerLink]="['editar', element.id]"
+        id="editar">
         <mat-icon>edit</mat-icon>
       </button>
     </td>

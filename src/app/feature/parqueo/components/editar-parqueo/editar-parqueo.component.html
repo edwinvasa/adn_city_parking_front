@@ -14,13 +14,13 @@
       <br>
 
       <mat-radio-group class="example-radio-group" aria-label="Seleccione el tipo de vehiculo"
-        formControlName="tipoVehiculo">
+        formControlName="tipoVehiculo" id="tipoVehiculo">
 
-        <mat-radio-button value="AUTOMOVIL"selected="true">
+        <mat-radio-button value="AUTOMOVIL"selected="true" id="radioAutomovil">
           <span class="material-icons radio-button">directions_car</span>
         </mat-radio-button>
 
-        <mat-radio-button value="MOTOCICLETA">
+        <mat-radio-button value="MOTOCICLETA" id="radioMotocicleta">
           <span class="material-icons radio-button">two_wheeler</span>
         </mat-radio-button>
 
@@ -42,14 +42,14 @@
 
           <mat-form-field appearance="fill" class="tiempo">
             <mat-label>Horas</mat-label>
-            <input matInput type="number" required placeholder="Ejemplo: 13" formControlName="horasIngreso"
+            <input matInput type="number" required placeholder="Ejemplo: 13" formControlName="horasIngreso" id="horasIngreso"
               [min]="HORA_MINIMA" [max]="HORA_MAXIMA">
           </mat-form-field>
 
 
           <mat-form-field appearance="fill" class="tiempo">
             <mat-label>Minutos</mat-label>
-            <input matInput type="number" required placeholder="Ejemplo: 30" formControlName="minutosIngreso"
+            <input matInput type="number" required placeholder="Ejemplo: 30" formControlName="minutosIngreso" id="minutosIngreso"
               [min]="MINUTOS_MINIMOS" [max]="MINUTOS_MAXIMOS">
           </mat-form-field>
         </div>
@@ -68,14 +68,14 @@
 
         <mat-form-field appearance="fill" class="tiempo">
           <mat-label>Horas</mat-label>
-          <input matInput type="number" placeholder="Ejemplo: 13" formControlName="horasSalida" [min]="HORA_MINIMA"
+          <input matInput type="number" placeholder="Ejemplo: 13" formControlName="horasSalida" [min]="HORA_MINIMA" id="horasSalida"
             [max]="HORA_MAXIMA">
         </mat-form-field>
 
 
         <mat-form-field appearance="fill" class="tiempo">
           <mat-label>Minutos</mat-label>
-          <input matInput type="number" placeholder="Ejemplo: 30" formControlName="minutosSalida"
+          <input matInput type="number" placeholder="Ejemplo: 30" formControlName="minutosSalida" id="minutosSalida"
             [min]="MINUTOS_MINIMOS" [max]="MINUTOS_MAXIMOS">
         </mat-form-field>
 
@@ -85,12 +85,12 @@
     <mat-divider inset></mat-divider>
     <mat-card-actions align="end">
 
-      <button mat-raised-button color="primary" type="submit" [disabled]="frmParqueo.invalid">
+      <button mat-raised-button color="primary" type="submit" [disabled]="frmParqueo.invalid" id="btnAceptar">
         <mat-icon>done</mat-icon>
         <span>Aceptar</span>
       </button>
 
-      <button mat-raised-button color="accent" routerLink='/parqueo/listar' type="button">
+      <button mat-raised-button color="accent" routerLink='/parqueo/listar' type="button" id="btnCancelar">
         <mat-icon>close</mat-icon>
         <span>Cancelar</span>
       </button>
