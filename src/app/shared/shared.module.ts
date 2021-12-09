@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MensajeErrorCamposDirective } from './directivas/error-campos/directiva/mensaje-error-campos.directive';
 import { MensajeErrorCamposSubmitDirective } from './directivas/error-campos/directiva/mensaje-error-campos-submit.directive';
@@ -20,7 +20,8 @@ import { DateAdapter, MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/mate
 import { CustomDateAdapter } from './custom-date-adapter';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
-import { DatePipe } from '@angular/common';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,9 @@ import { DatePipe } from '@angular/common';
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
   providers: [
     DatePipe,

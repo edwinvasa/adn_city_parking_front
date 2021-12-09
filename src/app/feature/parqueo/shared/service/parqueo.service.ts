@@ -38,19 +38,16 @@ export class ParqueoService {
   }
 
   public guardar(parqueo: Parqueo) {
-    console.info('creando parqueo: ' + parqueo.fechaHoraIngreso);
     return this.http.doPost<Parqueo, boolean>(`${environment.endpoint}/parqueos`, parqueo,
                                                 this.http.optsName('crear parqueos'));
   }
 
   public actualizar(parqueo: Parqueo) {
-    console.info('editando parqueo: ' + parqueo.fechaHoraIngreso);
     return this.http.doPut<Parqueo, boolean>(`${environment.endpoint}/parqueos/${parqueo.id}`, parqueo,
                                                 this.http.optsName('actualizar parqueo'));
   }
 
   public actualizarSalida(parqueo: Parqueo) {
-    console.info('editando parqueo: ' + parqueo.fechaHoraIngreso);
     return this.http.doPut<Parqueo, boolean>(`${environment.endpoint}/parqueos/salida/${parqueo.id}`, parqueo,
                                                 this.http.optsName('actualizar parqueo'));
   }

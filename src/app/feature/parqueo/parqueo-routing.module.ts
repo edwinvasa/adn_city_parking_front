@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CrearParqueoComponent } from './components/crear-parqueo/crear-parqueo.component';
 import { EditarParqueoComponent } from './components/editar-parqueo/editar-parqueo.component';
 import { FacturaComponent } from './components/factura/factura.component';
 import { ListarParqueoComponent } from './components/listar-parqueo/listar-parqueo.component';
@@ -13,18 +12,18 @@ const routes: Routes = [
     children: [
       {
         path: 'crear',
-        component: CrearParqueoComponent
+        component: EditarParqueoComponent
       },
       {
         path: 'listar',
         component: ListarParqueoComponent,
         children: [
           {
-            path: 'editar/:id',
+            path: 'crear',
             component: EditarParqueoComponent
           },
           {
-            path: 'salida/:id',
+            path: 'editar/:id',
             component: EditarParqueoComponent
           },
           {

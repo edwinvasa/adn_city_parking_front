@@ -17,7 +17,7 @@ export class FacturaComponent implements OnInit {
 
   dataSourceDetalle: MatTableDataSource<ParqueoDetalle>;
 
-  displayedColumns: string[] = ['id', 'fecha hora inicio', 'fecha hora fin', 'valor'];
+  displayedColumns: string[] = ['fecha hora inicio', 'fecha hora fin', 'valor'];
 
 
   constructor(protected parqueoService: ParqueoService,
