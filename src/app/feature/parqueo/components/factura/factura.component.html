@@ -1,17 +1,17 @@
 <table mat-table [dataSource]="dataSourceDetalle" class="mat-elevation-z8 demo-table">
   <caption class="mat-elevation-z8">Detalle del Parqueo</caption>
   <ng-container matColumnDef="fecha hora inicio">
-    <th mat-header-cell *matHeaderCellDef> Fecha hora inicio </th>
+    <th mat-header-cell *matHeaderCellDef id ="fechaHoraInicio"> Fecha hora inicio </th>
     <td mat-cell *matCellDef="let element"> {{element.fechaHoraInicio}} </td>
   </ng-container>
 
   <ng-container matColumnDef="fecha hora fin">
-    <th mat-header-cell *matHeaderCellDef> Fecha hora fin </th>
+    <th mat-header-cell *matHeaderCellDef id ="fechaHoraFin"> Fecha hora fin </th>
     <td mat-cell *matCellDef="let element"> {{element.fechaHoraFin}} </td>
   </ng-container>
 
   <ng-container matColumnDef="valor">
-    <th mat-header-cell *matHeaderCellDef> Valor </th>
+    <th mat-header-cell *matHeaderCellDef id ="valor"> Valor </th>
     <td mat-cell *matCellDef="let element"> {{element.valor | currency}} </td>
   </ng-container>
 

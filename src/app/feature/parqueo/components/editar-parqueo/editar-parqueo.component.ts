@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { ErrorPeticion } from '@core/modelo/error-peticion';
 import { Parqueo } from '@parqueo/shared/model/parqueo';
-import { DatePipe } from '@angular/common'
+import { DatePipe } from '@angular/common';
 
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 5;
 const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 8;
