@@ -10,21 +10,18 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
-//import { Parqueo } from '@parqueo/shared/model/parqueo';
+import { Parqueo } from '@parqueo/shared/model/parqueo';
 import { ParqueoService } from '@parqueo/shared/service/parqueo.service';
 import { of } from 'rxjs';
 
 import { EditarParqueoComponent } from './editar-parqueo.component';
 
-/*
-const PARQUEO_REGISTRO = new Parqueo(null, 'PLA111', 'AUTOMOVIL', '2021-12-07 10:40:00', '', 0);
-const PARQUEO_EDICION = new Parqueo(1, 'PLA111', 'AUTOMOVIL', '2021-12-07 10:40:00', '', 0);
-const PARQUEO_SALIDA = new Parqueo(1, 'PLA111', 'AUTOMOVIL', '2021-12-07 10:40:00', '2021-12-07 11:40:00', 8000);
-*/
+
 describe('EditarParqueoComponent', () => {
   let component: EditarParqueoComponent;
   let fixture: ComponentFixture<EditarParqueoComponent>;
   let parqueoService: ParqueoService;
+  const parqueoEdicion: Parqueo[] = [new Parqueo(1, 'PLA111', 'AUTOMOVIL', '07/12/2021 10:40:00', '07/12/2021 10:40:00', 0)];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -49,14 +46,6 @@ describe('EditarParqueoComponent', () => {
     }).compileComponents();
   });
 
-/*
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ EditarParqueoComponent ]
-    })
-    .compileComponents();
-  });*/
-
   beforeEach(() => {
     fixture = TestBed.createComponent(EditarParqueoComponent);
     component = fixture.componentInstance;
@@ -64,6 +53,11 @@ describe('EditarParqueoComponent', () => {
 
     spyOn(parqueoService, 'guardar').and.returnValue(
       of(true)
+    );
+    fixture.detectChanges();
+
+    spyOn(parqueoService, 'consultarPorId').and.returnValue(
+      of(parqueoEdicion)
     );
     fixture.detectChanges();
   });
@@ -189,9 +183,38 @@ describe('EditarParqueoComponent', () => {
     expect(component.parqueoEdicionForm.valid).toBeTruthy();
 
     component.operar();
+  });
 
-    // Aca validamos el resultado esperado al enviar la petición
-    // TODO adicionar expect
+  it('deberia registrar el parqueo correctamente', () => {
+    // arrange
+    expect(component.parqueoEdicionForm.valid).toBeFalsy();
+    component.parqueoEdicionForm.controls.placa.setValue('PLA111');
+    component.parqueoEdicionForm.controls.tipoVehiculo.setValue('AUTOMOVIL');
+    component.parqueoEdicionForm.controls.fechaIngreso.setValue('2021-12-07 10:40:00');
+    component.parqueoEdicionForm.controls.horasIngreso.setValue(10);
+    component.parqueoEdicionForm.controls.minutosIngreso.setValue(40);
+
+    expect(component.parqueoEdicionForm.valid).toBeTruthy();
+
+    component.operar();
+  });
+
+
+  it('deberia editar el parqueo correctamente', () => {
+    // arrange
+    component.id = 1;
+    component.edicion = true;
+    component.iniciarFormulario();
+    expect(component.parqueoEdicionForm.valid).toBeTruthy();
+    component.parqueoEdicionForm.controls.placa.setValue('PLA111');
+    component.parqueoEdicionForm.controls.tipoVehiculo.setValue('AUTOMOVIL');
+    component.parqueoEdicionForm.controls.fechaIngreso.setValue('2021-12-07 10:40:00');
+    component.parqueoEdicionForm.controls.horasIngreso.setValue(10);
+    component.parqueoEdicionForm.controls.minutosIngreso.setValue(40);
+
+    expect(component.parqueoEdicionForm.valid).toBeTruthy();
+
+    component.operar();
   });
 
 });
