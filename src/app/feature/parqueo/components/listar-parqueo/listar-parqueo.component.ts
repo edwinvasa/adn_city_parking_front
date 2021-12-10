@@ -58,8 +58,9 @@ export class ListarParqueoComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  filtrar(e : any){
-    this.dataSource.filter = e.target.value.trim().toLowerCase();
+  filtrar(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }

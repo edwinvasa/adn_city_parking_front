@@ -28,15 +28,15 @@ const SE_REGISTRO_LA_SALIDA_VALOR_DEL_PARQUEO = 'SE REGISTRO LA SALIDA, VALOR DE
 })
 export class EditarParqueoComponent implements OnInit {
 
-  HORA_MINIMA:number = 0;
-  MINUTOS_MINIMOS:number = 0;
-  HORA_MAXIMA:number = 23;
-  MINUTOS_MAXIMOS:number = 59;
+  HORA_MINIMA = 0;
+  MINUTOS_MINIMOS = 0;
+  HORA_MAXIMA = 23;
+  MINUTOS_MAXIMOS = 59;
 
   tituloCard: string = REGISTRAR_PARQUEO;
 
-  id: number = 0;
-  edicion: boolean = false;
+  id = 0;
+  edicion = false;
   valorParqueo = 0;
   parqueoEdicionForm: FormGroup;
   fechaMaxima: Date = new Date();
