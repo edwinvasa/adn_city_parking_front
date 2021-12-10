@@ -16,6 +16,10 @@ const REGISTRAR_PARQUEO = 'Registrar Parqueo';
 const EDITAR_PARQUEO = 'Editar Parqueo';
 const FORMATO_FECHA_HORA = 'yyyy-MM-dd HH:mm:ss';
 const RUTA_LISTAR_PARQUEOS = '/parqueo/listar';
+const NUMERO_DE_HORAS_MINIMAS = 0;
+const NUMERO_DE_MINUTOS_MINIMOS = 0;
+const NUMERO_DE_HORAS_MAXIMAS = 23;
+const NUMERO_DE_MINUTOS_MAXIMOS = 59;
 
 const SE_MODIFICO = 'SE MODIFICO';
 const REGISTRO_CREADO = 'REGISTRO CREADO';
@@ -28,10 +32,10 @@ const SE_REGISTRO_LA_SALIDA_VALOR_DEL_PARQUEO = 'SE REGISTRO LA SALIDA, VALOR DE
 })
 export class EditarParqueoComponent implements OnInit {
 
-  HORA_MINIMA = 0;
-  MINUTOS_MINIMOS = 0;
-  HORA_MAXIMA = 23;
-  MINUTOS_MAXIMOS = 59;
+  HORA_MINIMA = NUMERO_DE_HORAS_MINIMAS;
+  MINUTOS_MINIMOS = NUMERO_DE_MINUTOS_MINIMOS;
+  HORA_MAXIMA = NUMERO_DE_HORAS_MAXIMAS;
+  MINUTOS_MAXIMOS = NUMERO_DE_MINUTOS_MAXIMOS;
 
   tituloCard: string = REGISTRAR_PARQUEO;
 
@@ -123,7 +127,7 @@ export class EditarParqueoComponent implements OnInit {
     this.parqueo = crearObjetoParqueo(this.id, this.parqueoEdicionForm, fechaHoraIngreso, fechaHoraSalida);
 
     if (this.id == null) {
-      registrarNuevoIngreso(this.parqueoService, this.parqueo, this.router)
+      registrarNuevoIngreso(this.parqueoService, this.parqueo, this.router);
     }
 
     if (this.id != null && this.fechaCompletaSalida == null) {
@@ -131,7 +135,7 @@ export class EditarParqueoComponent implements OnInit {
     }
 
     if (this.id != null && this.fechaCompletaSalida != null) {
-      registrarSalidaParqueo(this.parqueoService, this.parqueo, this.router)
+      registrarSalidaParqueo(this.parqueoService, this.parqueo, this.router);
     }
   }
 
@@ -176,12 +180,13 @@ function crearObjetoParqueo(id: number, parqueoEdicionForm: FormGroup, fechaHora
 }
 
 function generarFechaHoraIngreso(parqueoEdicionForm: FormGroup): Date {
+  let fechaCompletaIngreso = null;
   if (parqueoEdicionForm.value.fechaIngreso != null) {
-    let fechaCompletaIngreso = new Date(parqueoEdicionForm.value.fechaIngreso);
+    fechaCompletaIngreso = new Date(parqueoEdicionForm.value.fechaIngreso);
     fechaCompletaIngreso.setHours(parqueoEdicionForm.value.horasIngreso);
     fechaCompletaIngreso.setMinutes(parqueoEdicionForm.value.minutosIngreso);
-    return fechaCompletaIngreso;
   }
+  return fechaCompletaIngreso;
 }
 
 function generarFechaHoraSalida( fechaCompletaSalida: Date, parqueoEdicionForm: FormGroup): Date {
@@ -189,8 +194,8 @@ function generarFechaHoraSalida( fechaCompletaSalida: Date, parqueoEdicionForm: 
     fechaCompletaSalida = new Date(parqueoEdicionForm.value.fechaSalida);
     fechaCompletaSalida.setHours(parqueoEdicionForm.value.horasSalida);
     fechaCompletaSalida.setMinutes(parqueoEdicionForm.value.minutosSalida);
-    return fechaCompletaSalida;
   }
+  return fechaCompletaSalida;
 }
 function modificarParqueo(parqueoService: ParqueoService, parqueo: Parqueo, router: Router) {
   parqueoService.actualizar(parqueo).pipe(switchMap(() => {

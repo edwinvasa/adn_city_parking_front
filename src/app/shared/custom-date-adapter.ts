@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import { NativeDateAdapter } from '@angular/material/core';
 
+const NUMERO_ANIOS = 2;
+const NUMERO_MESES = 1;
+const NUMERO_DATE = 0;
+
 @Injectable()
 export class CustomDateAdapter extends NativeDateAdapter {
-  parse(value: any): Date | null {
+  parse(value: string): Date | null {
     if (typeof value === 'string' && value.indexOf('/') > -1) {
       const str = value.split('/');
 
-      const year = Number(str[2]);
-      const month = Number(str[1]) - 1;
-      const date = Number(str[0]);
+      const year = Number(str[NUMERO_ANIOS]);
+      const month = Number(str[NUMERO_MESES]) - 1;
+      const date = Number(str[NUMERO_DATE]);
 
       return new Date(year, month, date);
     }

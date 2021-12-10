@@ -159,14 +159,6 @@ describe('EditarParqueoComponent', () => {
     component.parqueoEdicionForm.controls.minutosIngreso.setValue(40);
     component.parqueoEdicionForm.controls.minutosSalida.setValue(41);
     fixture.detectChanges();
-    console.log('contenido: ' + component.parqueoEdicionForm.value.placa);
-    console.log('contenido: ' + component.parqueoEdicionForm.value.tipoVehiculo);
-    console.log('contenido: ' + component.parqueoEdicionForm.value.fechaSalida);
-    console.log('contenido: ' + component.parqueoEdicionForm.value.fechaIngreso);
-    console.log('contenido: ' + component.parqueoEdicionForm.value.horasIngreso);
-    console.log('contenido: ' + component.parqueoEdicionForm.value.horasSalida);
-    console.log('contenido: ' + component.parqueoEdicionForm.value.minutosIngreso);
-    console.log('contenido: ' + component.parqueoEdicionForm.value.minutosSalida);
     // Act - Assert
     expect(component.parqueoEdicionForm.valid).toBeTrue();
   });
